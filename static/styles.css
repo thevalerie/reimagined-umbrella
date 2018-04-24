@@ -1,0 +1,44 @@
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #EDEDED;
+}
+
+.top-nav {
+    padding: 15px;
+}
+
+.icon {
+    padding-right: 5px;
+    height: 30px;
+    width: auto;
+}
+
+.nav-title {
+    font-size: 12pt;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.msg-timestamp {
+    margin: 5px;
+    color: #A9A9A9;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.posted-msg {
+    margin: 5px 5px 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.btn {
+    margin-top: 8px;
+}
+
+#new-msg-box {
+    margin: 5px;
+    padding: 5px;
+}

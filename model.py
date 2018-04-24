@@ -1,3 +1,4 @@
+import time
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -8,13 +9,18 @@ class Message(db.Model):
     __tablename__ = 'messages'
 
     message_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    message_body = db.Column(db.String(), nullable=False)
-    message_timestamp = db.Column(db.DateTime(), nullable=False)
+    message_ts = db.Column(db.Integer, nullable=False)
+    message_body = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
         """Show relevant info for debugging"""
 
-        return "\n<Message: message_id={}, message_timestamp={}".format(self.message_id, self.message_timestamp)
+        return "\n<Message {}: {}>".format(self.message_id, self.message_body)
+
+    def ts_readable(self):
+        """Return the timestamp as a human readable date in local time"""
+
+        return time.ctime(self.message_ts)
 
 
 def connect_to_db(app, db_uri='postgresql:///umbrella'):

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reimagined Umbrella</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class='container-fluid top-nav'>
+        <span><img class='icon' src='/static/images/umbrella.png'></span>
+        <span class='nav-title'>Reimagined Umbrella</span>
+    </div>
+    <div class='container'>
+        <div class='col-xs-12 col-md-9 col-lg-6'>
+            <div id='messages-container'>
+                {% if not messages %}
+                    <div class='row'>You're the first one here! Add a message below.</div>
+                {% else %}
+                    <div class='row'>
+                        <h3>Messages</h3>
+                    </div>
+                    {% for message in messages %}
+                        <div class="row msg-timestamp">{{ message.ts_readable }}</div>
+                        <div class="row posted-msg" id={{ message.message_id }}>{{ message.message_body }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class='row'>
+                <h3>Post a new mesage</h3>
+                <div class='row' id='new-msg-box'>
+                    <form class='form' id='newMessageForm'>
+                        <textarea class='form-control' id='newMessageBody'></textarea>
+                    </form>
+                    <button type='submit' class='btn btn-default' value='Submit' form='newMessageForm'>Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/message-board.js"></script>
+</body>
+</html>

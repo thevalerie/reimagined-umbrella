@@ -5,6 +5,7 @@ from model import Message, connect_to_db, db
 import helper
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
@@ -37,7 +38,6 @@ if __name__ == "__main__":
     # make sure templates, etc. are not cached in debug mode
     # app.jinja_env.auto_reload = app.debug
 
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     connect_to_db(app)
 

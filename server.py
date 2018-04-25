@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
+connect_to_db(app)
 
 @app.route('/')
 def message_board():
@@ -38,8 +39,6 @@ if __name__ == "__main__":
     # make sure templates, etc. are not cached in debug mode
     # app.jinja_env.auto_reload = app.debug
 
-
-    connect_to_db(app)
 
     # Use the DebugToolbar
     # DebugToolbarExtension(app)

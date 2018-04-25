@@ -7,6 +7,10 @@ function displayNewMessage(data) {
     let newMessage = $("<div class='row posted-msg'></div>").text(data['message_body']);
     // add them to the container
     $('#messages-container').append(newTimeStamp, newMessage);
+    // if the welcome message is showing, hide it
+    if ($('#first-visitor').css('visibility') == "visible") {
+        $('#first-visitor').hide();
+    }
 }
 
 // add a new message to the db
@@ -18,7 +22,7 @@ function addMessage(evt) {
     // send message body data to the backend to add to the db
     $.post('/add_message.json', payload, function(data) {
         $('#newMessageBody').val(''); // reset the new message text box
-        displayNewMessage(data) // re-display all the messages
+        displayNewMessage(data) // add the new message to messages
     });
 }
 

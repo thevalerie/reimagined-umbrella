@@ -14,7 +14,7 @@
         <div class='col-xs-12 col-md-9 col-lg-6'>
             <div id='messages-container'>
                 {% if not messages %}
-                    <div class='row'>You're the first one here! Add a message below.</div>
+                    <div class='row' id='first-visitor'>You're the first one here! Add a message below.</div>
                 {% else %}
                     <div class='row'>
                         <h3>Messages</h3>
